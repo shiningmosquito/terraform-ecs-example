@@ -34,4 +34,10 @@ Consider a High Availability (HA) environment we might setup ECS Cluster with Mu
 
 ## 3. Variables
 Pay attention on `x` character in `variables.tf`. Those characters should replaced by your own AWS resource.
+There five resources variables need to modify: `subnet`, `vpc_id`, `acm_certificate_arn`, `route53_endpoint` and  `route53_public_zoneid`
 
+Make sure you `Subnet`, `VPC` and `ACM certificate` created in Tokyo (ap-northeast-1) region. Otherwise modify other variables to corresponding region.
+
+How to get an ACM certificate: https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request.html
+
+How to create a Route 53 Hosted Zone: https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingHostedZone.html
