@@ -14,3 +14,21 @@ Consider High Availability (HA) environment we might setup ECS Cluster with Mult
 
 ![artitecture](https://imgur.com/AkJsjAU.png)
 
+## 2. Repository architecture
+```
+.
+├── definitions
+│   └── example_definition.json
+├── ecs-demo.tf
+├── provider.tf
+└── variables.tf
+
+1 directory, 4 files
+```
+- **example_definition.json**: Describe ECS Task Definition's detailed information.
+
+- **ecs-demo.tf**: Describe infrastructure terraform template.
+
+- **provider.tf**: Configure the AWS Provider Configuration.
+
+- **variables.tf**: Describe variables used in ecs-demo.tf.
