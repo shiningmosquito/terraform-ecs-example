@@ -16,28 +16,67 @@ Consider a High Availability (HA) environment we might setup ECS Cluster with Mu
 ## 2. Repository architecture
 ```
 .
+├── alb.tf
+├── assume_role_policy
+│   ├── assume_instance.json
+│   └── assume_service.json
+├── autoscaling.tf
+├── cloudwatch.tf
 ├── definitions
 │   └── example_definition.json
-├── ecs-demo.tf
+├── dhcp.tf
+├── ecs.tf
+├── iam.tf
+├── internet_gateway.tf
+├── network_acl.tf
 ├── provider.tf
-└── variables.tf
+├── route53.tf
+├── route_table.tf
+├── securitygroup.tf
+├── subnet.tf
+├── variables.tf
+└── vpc.tf
 
-1 directory, 4 files
+2 directories, 18 files
 ```
+- **alb.tf**: Describe Application Load Balancer settings.
+- **assume_instance.json**: Assume policy for ECS Instance Role.
+- **assume_service.json**: Assume policy for ECS Service Role.
+- **autoscaling.tf**: Describe Auto Scaling and Launch Configuration settings.
+- **cloudwatch.tf**: Describe Cloud Watch log group settings.
 - **example_definition.json**: Describe ECS Task Definition's detailed information.
-
-- **ecs-demo.tf**: Describe infrastructure terraform template.
-
-- **provider.tf**: Configure the AWS Provider Configuration.
-
-- **variables.tf**: Describe variables used in ecs-demo.tf.
+- **dhcp.tf**: Describe VPC-DHCP settings. 
+- **ecs.tf**: Describe ECS-Cluster, ECS-Service and ECS-Task settings.
+- **iam.tf**: Describe IAM Role settings for ECS-Instance and ECS-Service.
+- **internet_gateway.tf**: Describe VPC-Internet Gateway settings.
+- **network_acl.tf**: Describe VPC-ACL settings.
+- **route53.tf**: Describe DNS name for Application Load Balancer endpoint.
+- **route_table.tf**: Describe VPC-Route Table settings.
+- **securitygroup.tf**: Describe VPC-Security Group settings.
+- **subnet.tf**: Describe VPC-Subnet settings.
+- **vpc.tf**: Describe VPC settings.
 
 ## 3. Variables
-Pay attention to `x` character in `variables.tf`. Those characters should replace by your own AWS resource.
-There five resources variables need to modify: `subnet`, `vpc_id`, `acm_certificate_arn`, `route53_endpoint` and  `route53_public_zoneid`
+Pay attention to `acm_certificate_arn`, `route53_endpoint` and `route53_public_zoneid` in `variables.tf`. Those variables should replace by your own AWS resource.
 
-Make sure you `Subnet`, `VPC` and `ACM certificate` created in Tokyo (ap-northeast-1) region. Otherwise, modify other variables to the corresponding region.
+Here are some introductions for your reference:
 
-How to get an ACM certificate: https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request.html
+1. How to get an ACM certificate: https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request.html
+2. How to create a Route 53 Hosted Zone: https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingHostedZone.html
 
-How to create a Route 53 Hosted Zone: https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingHostedZone.html
+## 4. Usage
+1. Install terraform modules.
+```
+terraform init
+```
+2. Apply terraform template.
+```
+terraform apply -var aws_access_key={your_access_key} -var aws_secret_key={your_secret_key}
+```
+
+## 5. Result
+Open browser and paste the Route53 DNS name you list in variables.tf.
+
+You and see Gopher Server is running now.
+
+<img src="https://i.imgur.com/uHHx17b.png"/>
