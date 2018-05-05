@@ -36,8 +36,7 @@ variable "instance_type" {
 variable "acm_certificate_arn" {
   description = "ACM Certificate Arn"
 
-  //default     = "arn:aws:acm:ap-northeast-1:xxxxxxxxxxxx:certificate/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-  default = "arn:aws:acm:ap-northeast-1:271681955745:certificate/b50c1c06-98cb-43b5-80c6-b92dc399cb29"
+  default     = "arn:aws:acm:ap-northeast-1:xxxxxxxxxxxx:certificate/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 }
 
 variable "ssl_certificate" {
