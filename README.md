@@ -75,8 +75,8 @@ terraform apply -var aws_access_key={your_access_key} -var aws_secret_key={your_
 ```
 
 ## 5. Result
-Open browser and paste the Route53 DNS name you list in variables.tf.
+Open browser and paste the Route53 DNS name(route53_endpoint) you list in variables.tf.
 
-You and see Gopher Server is running now.
+You can see Gopher Server is running now.
 
 <img src="https://i.imgur.com/uHHx17b.png"/>
