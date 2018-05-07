@@ -1,8 +1,8 @@
 # terraform-ecs-example
 
-A terraform template to establish an ECS Cluster integrate with **Auto Scaling Group**, **Launch Configuration**, **Application Load Balancer**, **Target Group**, **Cloud Watch - log group** and **Route 53**.
+A terraform template to establish an ECS Cluster integrate with **VPC**, **IAM-Role**, **Auto Scaling Group**, **Launch Configuration**, **Application Load Balancer**, **Cloud Watch-log group** and **Route 53**.
 
-In this example we use [pmorjan/demo](https://hub.docker.com/r/pmorjan/demo/) a very tiny golang based webserver container as our source container image. 
+In this example we use [pmorjan/demo](https://hub.docker.com/r/pmorjan/demo/) a very tiny golang-based webserver container as our source container image. 
 ## 1. Artitecture and Scenario
 Think about a real case, a user visit your website via Route 53 endpoint.
 
